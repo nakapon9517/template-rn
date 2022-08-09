@@ -1,0 +1,98 @@
+/*
+透明度（アルファ）16進数（HEX）一覧
+100% — FF, 90% — E6, 80% — CC, 70% — B3, 60% — 99
+50% — 80, 40% — 66, 30% — 4D, 20% — 33, 10% — 1A
+*/
+
+export enum GroupColor {
+  ThinGreen = '#9FF9A1',
+  PaleGreen = '#A3D10C',
+  DarkSeaGreen = '#8FBC8B',
+  LightSeaGreen = '#20B2AA',
+  Yellow = '#FFE944',
+  Gold = '#FFD700',
+  SaddleBrown = '#DEB887',
+  LightSalmon = '#FFA07A',
+  Orange = '#FB7756',
+  Red = '#FF4D4D',
+  Pink = '#FF99E6',
+  Purple = '#CDA5F3',
+  LightSteelBlue = '#B0C4DE',
+  SkyBlue = '#87CEEB',
+  Blue = '#9999FF',
+  BlueGray = '#6B7DB3',
+  LightSlateGray = '#778899',
+  Gray = '#6F6D78',
+}
+
+export const Color = {
+  brand100: '#030520',
+  brand90: '#171E4F',
+  brand80: '#272F5F',
+  brand70: '#3D4776',
+  brand60: '#59638D',
+  brand50: '#7B84A5', // rgba(123, 132, 165, 1) hsl(227, 25%, 65%)
+  brand30: '#C1CAE3',
+  brand20: '#DCE3F6',
+  brand10: '#EDF1FA',
+  brand5: '#FFFDF9', // #F5F8FD
+  gray100: '#0B081A',
+  gray90: '#232131',
+  gray80: '#3C3948',
+  gray70: '#54525F',
+  gray50: '#6F6D78',
+  gray40: '#8F8E94',
+  gray20: '#CECDD1',
+  gray10: '#E4E3E8',
+  gray5: '#FFFDF9',
+  white: '#ffffff',
+  black: '#000000',
+  green: '#10D180',
+  blue50: '#1E74FF',
+  blue40: '#569DFF',
+  blue30: '#78B6FF',
+  blue20: '#A4D1FF',
+  pink50: '#DB775C',
+  pink30: '#DD8CA7',
+  pink10: '#FFA37F',
+  pink5: '#FFD2B2',
+  red50: '#FF5C54',
+  red40: '#FF8F7E',
+  red30: '#FFAE98',
+  brandGradation: ['#7B84A5', '#DD8CA7'],
+};
+
+export const Colors = {
+  light: {
+    background: Color.brand5,
+    border: Color.gray10,
+    description: Color.brand50,
+    icon: Color.brand80,
+    inactive: Color.brand10,
+    inactiveTint: Color.brand30,
+    primary: Color.blue20,
+    submit: Color.blue40,
+    text: Color.brand100,
+    transBackground: `${Color.brand5}CC`,
+    shadowColor: Color.brand80,
+    thin: Color.brand10,
+    footerTrans: Color.gray100 + '99',
+    searchBar: Color.gray10 + '66',
+  },
+  dark: {
+    background: Color.gray100,
+    border: Color.gray90,
+    description: Color.brand50,
+    icon: Color.brand30,
+    inactive: Color.brand70,
+    inactiveTint: Color.brand80,
+    primary: Color.blue50,
+    submit: Color.blue50,
+    text: Color.brand5,
+    transBackground: `${Color.brand100}CC`,
+    shadowColor: Color.brand10,
+    thin: Color.brand90,
+    footerTrans: Color.gray80 + '99',
+    searchBar: Color.gray90 + '66',
+  },
+};

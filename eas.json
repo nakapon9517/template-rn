@@ -1,0 +1,55 @@
+{
+  "cli": {
+    "version": ">= 0.45.1",
+    "requireCommit": false
+  },
+  "build": {
+    "base": {
+      "node": "14.18.3",
+      "yarn": "1.22.10"
+    },
+    "simulator": {
+      "ios": {
+        "simulator": true
+      },
+      "extends": "base",
+      "env": { "APP_ENV": "dev" },
+      "releaseChannel": "default"
+    },
+    "development": {
+      "extends": "base",
+      "developmentClient": true,
+      "distribution": "internal",
+      "env": { "APP_ENV": "dev" },
+      "releaseChannel": "default"
+    },
+    "preview": {
+      "extends": "base",
+      "distribution": "store",
+      "releaseChannel": "stg-v2.0",
+      "env": { "APP_ENV": "staging" }
+    },
+    "production": {
+      "extends": "base",
+      "distribution": "store",
+      "releaseChannel": "prod-v2.0",
+      "env": { "APP_ENV": "production" }
+    }
+  },
+  "submit": {
+    "preview": {
+      "ios": {
+        "appleId": "maksminakapon@gmail.com",
+        "ascAppId": "1606856291",
+        "appleTeamId": "6Q6T6WGYSQ"
+      }
+    },
+    "production": {
+      "ios": {
+        "appleId": "maksminakapon@gmail.com",
+        "ascAppId": "1606856291",
+        "appleTeamId": "6Q6T6WGYSQ"
+      }
+    }
+  }
+}
