@@ -10,6 +10,7 @@ import { LocaleConfig } from 'react-native-calendars';
 import { RecoilRoot } from 'recoil';
 import { StatusBar } from 'expo-status-bar';
 import * as Admob from 'expo-ads-admob';
+import * as SplashScreen from 'expo-splash-screen';
 import * as Notifications from 'expo-notifications';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
@@ -34,6 +35,8 @@ LocaleConfig.defaultLocale = 'jp';
 Notifications.setNotificationHandler({
   handleNotification: async () => ({ shouldShowAlert: true, shouldPlaySound: false, shouldSetBadge: false }),
 });
+
+SplashScreen.preventAutoHideAsync();
 
 const RootScreen = () => {
   const defaultTheme = useColorScheme() as NonNullable<ColorSchemeName>;

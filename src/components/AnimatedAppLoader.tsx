@@ -2,16 +2,13 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { Image, StyleSheet, View } from 'react-native';
 import { Color, Layout } from '@/constants';
 import { logger, Storage, StorageName } from '@/utils';
-import { auth } from '@/utils/Firebase';
 import { useIntroduction, useSettingConfig, useTheme } from '@/hooks';
 import { Asset } from 'expo-asset';
-import AppLoading from 'expo-app-loading';
 import * as SplashScreen from 'expo-splash-screen';
 import { LinearGradient } from 'expo-linear-gradient';
 import Svg, { Path } from 'react-native-svg';
 import Constants from 'expo-constants';
 import Animated, { Keyframe } from 'react-native-reanimated';
-import { useAuthState } from 'react-firebase-hooks/auth';
 import { SettingConfig } from '@/entities';
 import { AppView } from '@/appComponents';
 
@@ -20,46 +17,48 @@ const icon = require('@/assets/icon.json');
 export const AnimatedAppLoader = ({ children }: { children: React.ReactNode }) => {
   const [isSplashReady, setSplashReady] = useState(false);
 
-  const startAsync = useCallback(async () => {
-    Asset.fromModule(require('@/assets/icon.png'));
+  useEffect(() => {
+    async function prepare() {
+      try {
+        Asset.fromModule(require('@/assets/icon.png'));
+      } catch (e) {
+        console.warn(e);
+      } finally {
+        setSplashReady(true);
+      }
+    }
+    prepare();
   }, []);
 
-  const onFinish = useCallback(() => setSplashReady(true), []);
+  const onLayoutRootView = useCallback(async () => {
+    if (isSplashReady) {
+      await SplashScreen.hideAsync();
+    }
+  }, [isSplashReady]);
 
-  return isSplashReady ? (
-    <AnimatedSplashScreen>{children}</AnimatedSplashScreen>
-  ) : (
-    <AppLoading autoHideSplash={false} startAsync={startAsync} onError={logger.error} onFinish={onFinish} />
+  return (
+    <AppView style={{ flex: 1 }} onLayout={onLayoutRootView}>
+      <AnimatedSplashScreen>{children}</AnimatedSplashScreen>
+    </AppView>
   );
 };
 
 const storage = new Storage();
 const AnimatedSplashScreen = ({ children }: { children: React.ReactNode }) => {
-  // const [userAuth, loading] = useAuthState(auth);
   const { setTheme } = useTheme();
   const { setSettings } = useSettingConfig();
   const { setIntroduction } = useIntroduction();
   const [isAppReady, setAppReady] = useState(false);
-  // const [isInitialLoading, setInitialLoading] = useState(true);
 
-  // useEffect(() => {
-  //   if (loading) return;
-  //   if (userAuth && userAuth.uid) {
-  //     initialLoad().then(() => {
-  //       logger.set(userAuth);
-  //       setInitialLoading(false);
-  //     });
-  //   } else {
-  //     setInitialLoading(false);
-  //   }
-  // }, [userAuth, loading]);
-
-  const initialLoad = useCallback(async () => {
-    await Promise.all([
-      storage.get(StorageName.Theme).then((v?: 'light' | 'dark') => setTheme(v ?? 'light')),
-      storage.get(StorageName.Settings).then((v?: SettingConfig) => setSettings(v ?? { isDefaultTheme: true })),
-      storage.get(StorageName.Introduction).then((v?: boolean) => setIntroduction(v ?? false)),
-    ]);
+  useEffect(() => {
+    const initialLoad = async () => {
+      await Promise.all([
+        storage.get(StorageName.Theme).then((v?: 'light' | 'dark') => setTheme(v ?? 'light')),
+        storage.get(StorageName.Settings).then((v?: SettingConfig) => setSettings(v ?? { isDefaultTheme: true })),
+        storage.get(StorageName.Introduction).then((v?: boolean) => setIntroduction(v ?? false)),
+      ]);
+    };
+    initialLoad();
   }, []);
 
   const onImageLoaded = useCallback(async () => {
