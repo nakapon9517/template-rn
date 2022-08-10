@@ -8,14 +8,7 @@ import { FlashList } from '@shopify/flash-list';
 type Data = {
   title: string;
 };
-const DATA: Data[] = [
-  {
-    title: 'First Item',
-  },
-  {
-    title: 'Second Item',
-  },
-];
+const DATA: Data[] = [{ title: 'First Item' }, { title: 'Second Item' }];
 
 export const ExampleScreen = ({ navigation, route }: RootStackScreenProps<'Example'>) => {
   const { theme } = useTheme();

@@ -26,29 +26,29 @@
     "preview": {
       "extends": "base",
       "distribution": "store",
-      "releaseChannel": "stg-v2.0",
+      "releaseChannel": "stg-v1.0",
       "env": { "APP_ENV": "staging" }
     },
     "production": {
       "extends": "base",
       "distribution": "store",
-      "releaseChannel": "prod-v2.0",
+      "releaseChannel": "prod-v1.0",
       "env": { "APP_ENV": "production" }
     }
   },
   "submit": {
     "preview": {
       "ios": {
-        "appleId": "maksminakapon@gmail.com",
-        "ascAppId": "1606856291",
-        "appleTeamId": "6Q6T6WGYSQ"
+        "appleId": "xxx@example.com",
+        "ascAppId": "xxx",
+        "appleTeamId": "xxx"
       }
     },
     "production": {
       "ios": {
-        "appleId": "maksminakapon@gmail.com",
-        "ascAppId": "1606856291",
-        "appleTeamId": "6Q6T6WGYSQ"
+        "appleId": "xxx@example.com",
+        "ascAppId": "xxx",
+        "appleTeamId": "xxx"
       }
     }
   }

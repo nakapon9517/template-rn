@@ -1,12 +1,7 @@
 import { Layout } from '@/constants';
 import React, { useMemo } from 'react';
 import { Image, StyleSheet, View } from 'react-native';
-import {
-  PanGestureHandler,
-  PinchGestureHandler,
-  PinchGestureHandlerGestureEvent,
-  TouchableWithoutFeedback,
-} from 'react-native-gesture-handler';
+import { PanGestureHandler, PinchGestureHandler, PinchGestureHandlerGestureEvent } from 'react-native-gesture-handler';
 import Animated, {
   useAnimatedGestureHandler,
   useAnimatedStyle,

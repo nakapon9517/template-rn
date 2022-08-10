@@ -4,8 +4,8 @@ enum AppEnv {
   Dev = 'dev',
 }
 
-const version = '2.0.0';
-const buildNumber = 47;
+const version = '1.0.0';
+const buildNumber = 1;
 
 const env: AppEnv =
   process.env.APP_ENV == AppEnv.Prod ? AppEnv.Prod : process.env.APP_ENV == AppEnv.Stag ? AppEnv.Stag : AppEnv.Dev;
@@ -142,7 +142,7 @@ const Configs = {
     slug: 'RN-Template-dev',
     scheme: 'template',
     ios: {
-      associatedDomains: ['applinks:konoyubitomares.page.link'],
+      associatedDomains: ['applinks:template.page.link'],
       // googleServicesFile: './GoogleService-Info.dev.plist',
       config: { googleMapsApiKey: '' },
     },
@@ -152,7 +152,7 @@ const Configs = {
       intentFilters: [
         {
           action: 'VIEW',
-          data: [{ scheme: 'https', host: 'konoyubitomares.page.link', pathPrefix: '/records' }],
+          data: [{ scheme: 'https', host: 'template.page.link', pathPrefix: '/records' }],
           category: ['BROWSABLE', 'DEFAULT'],
         },
       ],
@@ -175,7 +175,7 @@ const Configs = {
       },
     },
     extra: {
-      eas: { projectId: '29006cfe-a0d0-425d-a90c-2b4b1057d37c' },
+      eas: { projectId: 'xxx' },
     },
   },
   staging: {
@@ -183,7 +183,7 @@ const Configs = {
     slug: 'RN-Template',
     scheme: 'template',
     ios: {
-      associatedDomains: ['applinks:konoyubitomares.page.link'],
+      associatedDomains: ['applinks:template.page.link'],
       // googleServicesFile: './GoogleService-Info.stg.plist',
       config: { googleMapsApiKey: '' },
     },
@@ -193,7 +193,7 @@ const Configs = {
       intentFilters: [
         {
           action: 'VIEW',
-          data: [{ scheme: 'https', host: 'konoyubitomares.page.link', pathPrefix: '/records' }],
+          data: [{ scheme: 'https', host: 'template.page.link', pathPrefix: '/records' }],
           category: ['BROWSABLE', 'DEFAULT'],
         },
       ],

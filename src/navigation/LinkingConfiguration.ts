@@ -1,4 +1,4 @@
-import { AppEnv, DeepLinkHost, RootStackParamList } from '@/entities';
+import { AppEnv, RootStackParamList } from '@/entities';
 import { LinkingOptions } from '@react-navigation/native';
 import * as Linking from 'expo-linking';
 
@@ -25,13 +25,7 @@ const linking: LinkingOptions<RootStackParamList> = {
           Account: 'account',
         },
       },
-      NotFound: '*',
-      JoinApproval: DeepLinkHost.GroupApproval,
-      Chat: DeepLinkHost.GroupChat,
-      SchedulePreview: DeepLinkHost.GroupSchedule,
-      RequestJoin: DeepLinkHost.GroupJoin,
-      StationPreview: 'station/preview',
-      StationSelector: 'station/selector',
+      Example: 'example',
     },
   },
 };

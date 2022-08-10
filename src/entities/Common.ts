@@ -1,11 +1,6 @@
 import { BottomTabScreenProps } from '@react-navigation/bottom-tabs';
 import { CompositeScreenProps, NavigatorScreenParams } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { BaseAccount } from './Account';
-import { Group, SimpleGroup } from './Group';
-import { Schedule } from './Schedule';
-import { SearchConditionType } from './SearchCondition';
-import { Station } from './Station';
 
 declare global {
   namespace ReactNavigation {
@@ -14,16 +9,7 @@ declare global {
 }
 
 export type RootStackParamList = {
-  // modal
-  JoinApproval: { noticeId: string; group: Group; approvalAccount: BaseAccount };
-  RequestJoin: { simpleGroup: SimpleGroup };
-  SearchCondition: { type: SearchConditionType };
-  StationPreview: { station: Station };
-
-  // child
   Example: undefined;
-
-  // root
   Root: NavigatorScreenParams<RootTabParamList> | undefined;
 };
 
